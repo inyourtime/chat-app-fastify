@@ -8,6 +8,11 @@ async function mongodb (fastify, opts) {
   /** decorate your mongo service of your models here
   * @example fastify.decorate(userService, 'userService')
   */
+
+  fastify.addHook('onClose', (instance, done) => {
+    mongoose.disconnect()
+    done()
+  })
 }
 
 export default fp(mongodb, {
