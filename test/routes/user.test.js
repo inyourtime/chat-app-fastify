@@ -1,11 +1,11 @@
 import { test } from 'tap'
 import { build } from '../helper.js'
 
-test('example is loaded', async (t) => {
+test('user is loaded', async (t) => {
   const app = await build(t)
 
   const res = await app.inject({
-    url: '/example'
+    url: '/api/v1/user'
   })
-  t.equal(res.payload, 'this is an example')
+  t.same(JSON.parse(res.payload), { user: { name: 'Hola boat' } })
 })

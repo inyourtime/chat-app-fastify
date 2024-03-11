@@ -16,6 +16,7 @@ export default async function (fastify, opts) {
   await fastify.register(Env, {
     schema: S.object()
       .prop('NODE_ENV', S.string().required())
+      .prop('MONGO_URI', S.string().required())
   })
 
   // Enables the use of CORS in a Fastify application.
