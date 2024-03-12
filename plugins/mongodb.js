@@ -9,7 +9,7 @@ async function mongodb (fastify, opts) {
   * @example fastify.decorate(userService, 'userService')
   */
 
-  fastify.addHook('onClose', (instance, done) => {
+  fastify.addHook('onClose',  (_, done) => {
     mongoose.disconnect()
     done()
   })

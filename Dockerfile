@@ -2,9 +2,12 @@ FROM node:20-alpine
 
 WORKDIR /usr/src/app
 
+# Install app dependencies
+COPY package*.json ./
+RUN npm ci --omit=dev
+
+# Copy app source code
 COPY . .
-# COPY package*.json pnpm-lock.yaml ./
-RUN npm install --omit=dev
 
 EXPOSE 3000
 

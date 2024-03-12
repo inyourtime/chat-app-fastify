@@ -12,3 +12,8 @@ Dockerfile
 docker-compose.yml
 .prettierrc
 .prettierignore
+
+# Coverage directory used by tools like istanbul
+coverage
+
+test
